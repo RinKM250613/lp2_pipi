@@ -85,20 +85,6 @@ public class InventarioController {
 		return "redirect:/inventarioReb/listadoYllanes";
 	}
 	
-	@GetMapping("/eliminarYllanes/{id}")
-	public String eliminar(@PathVariable Integer id, Model model) {
-	    Inventario inventario = _IInventarioRepository.findById(id).orElseThrow();
-	    model.addAttribute("invu", inventario);
-	    return "inventarioReb/eliminarYllanes";
-	}
-
-	@PostMapping("/eliminar/{id}")
-	public String eliminarInventario(@PathVariable Integer id, RedirectAttributes flash) {
-		_IInventarioRepository.deleteById(id);
-	    String mensaje = Alert.sweetAlertSuccess("Inventario con código " + id + " eliminado");
-	    flash.addFlashAttribute("alert", mensaje);
-	    return "redirect:/inventarioReb/listadoYllanes";
-	}
 
 	
 	
