@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Eliminar Inventario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="..." crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h1 class="text-center">Eliminar Inventario</h1>
+                <p class="text-center">¿Estás seguro de que deseas eliminar el inventario con código <strong th:text="${invu.idInventario}"></strong>?</p>
+                <div class="text-center">
+                    <form th:action="@{/inventarioReb/eliminar/{id}(id=${invu.idInventario})}" method="post">
+                        <button type="submit" class="btn btn-danger">
+                            Eliminar
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <a th:href="@{/inventarios/listadoYllanes}" class="btn btn-secondary">
+                            Cancelar
+                            <i class="fa-solid fa-circle-left"></i>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
